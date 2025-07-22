@@ -25,5 +25,8 @@ https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=600118.SHH&o
 实现思路：
 
 通过宝塔后台的定时任务，每天定时请求这个接口，获取数据，然后保存到数据库中。
-再通过grafana的插件，展示这个数据。
+
+再通过grafana的插件查询数据库，展示这个数据。
+
+
 
