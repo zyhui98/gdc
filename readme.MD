@@ -14,19 +14,13 @@ AI时代，对于个人需要有个全面满足自己需求的工具，这个工
 
 # 主要功能
 ## 获取中国卫星每日股价
-api接口选择：
-
-https://www.alphavantage.co/documentation/
-
-实际请求地址：
-
-https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=600118.SHH&outputsize=compact&apikey=demo
+[shell/stock-task.sh](shell/stock-task.sh)
 
 实现思路：
-
 通过宝塔后台的定时任务，每天定时请求这个接口，获取数据，然后保存到数据库中。
-
 再通过grafana的插件查询数据库，展示这个数据。
 
 
+## LLM-非共识问题
+[shell/fgs-qa-task.sh](shell/fgs-qa-task.sh)
 

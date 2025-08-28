@@ -42,3 +42,4 @@ out
 logs/
 .cerberus.report
 .coolhealth.report
+local/
