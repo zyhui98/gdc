@@ -2,7 +2,7 @@
 #获取每日中国卫星股价，在grafana展示
 
 #获取聚合股票密钥
-apikey=XXX
+apikey=$juhe_apikey
 echo "apikey:$apikey"
 
 

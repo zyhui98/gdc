@@ -6,6 +6,14 @@ apikey=$zhipu_apikey
 
 echo "apikey:$apikey"
 
+# 获取1-500页之间的随机数
+now=$((RANDOM % 1000 + 1))
+
+
+random_topic='阅读中华书局《红楼梦》第'"$now"'页，讲了什么，20个字概括'
+
+echo "random_topic:$random_topic"
+
 #使用免费的智谱api，获取每日非共识问题
 response=$(curl -s --request POST \
   --url https://open.bigmodel.cn/api/paas/v4/chat/completions \
@@ -26,7 +34,7 @@ response=$(curl -s --request POST \
   "messages": [
     {
       "role": "user",
-      "content": "随机输出一个古老话题，10个字以内"
+      "content": "'"$random_topic"'"
     }
   ]
 }')
@@ -39,7 +47,7 @@ topic=$(printf "%s" $response  | jq -r '.choices[0].message.content' | jq -r '.a
 echo "topic:$topic"
 
 # 提前话题相关的非共识答案
-topic_thinking="随机输出一个关于${topic}的非共识思考,要求100字以内"
+topic_thinking="关于「${topic}」的反共识思考,要求100字以内"
 echo "topic_thinking:$topic_thinking"
 
 response=$(curl -s --request POST \
